@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  label: MyString
+  produced_at: 2017-11-05
+  expiration_at: 2017-11-05
+
+two:
+  name: MyString
+  label: MyString
+  produced_at: 2017-11-05
+  expiration_at: 2017-11-05

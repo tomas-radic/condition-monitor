@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-7">
+
+    <nav aria-label="breadcrumb" role="navigation">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to t('.products'), products_path, class: 'underlined' %></li>
+        <li class="breadcrumb-item"><%= link_to @product.name, product_path(@product), class: 'underlined' %></li>
+        <li class="breadcrumb-item active" aria-current="page"><%= @phase.name %></li>
+        
+      </ol>
+    </nav>
+
+    <h2><%= @phase.name %></h2>
+    <hr/>
+    <p>
+      <i><%= t('activerecord.attributes.phase.begin_at') %>:</i>
+      <%= formatted_datetime(@phase.begin_at) %>
+    </p>
+    <p>
+      <i><%= t('activerecord.attributes.phase.planned_end_at') %>:</i>
+      <%= formatted_datetime(@phase.planned_end_at) %>
+    </p>
+    <p>
+      <i><%= t('activerecord.attributes.phase.end_at') %>:</i>
+      <%= formatted_datetime(@phase.end_at) %>
+    </p>
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#phase-modal">
+      <%= t('edit') %>
+    </button>
+    <hr/>
+    <h3><%= t('.measurements') %></h3>
+    <%= render 'measurements/list', measurements: @phase.measurements %>
+  </div>
+</div>
+
+
+
+<%= render 'modal' %>

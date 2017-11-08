@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-7">
+
+    <nav aria-label="breadcrumb" role="navigation">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to t('.products'), products_path, class: 'underlined' %></li>
+        <li class="breadcrumb-item active" aria-current="page"><%= @product.name %></li>
+      </ol>
+    </nav>
+
+    <h2><%= @product.name %></h2>
+    <hr/>
+    <p>
+      <i><%= t('activerecord.attributes.product.label') %>:</i>
+      <%= @product.label %>
+    </p>
+    <p>
+      <i><%= t('activerecord.attributes.product.produced_at') %>:</i>
+      <%= formatted_date(@product.produced_at) %>
+    </p>
+    <p>
+      <i><%= t('activerecord.attributes.product.expiration_at') %>:</i>
+      <%= formatted_date(@product.expiration_at) %>
+    </p>
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#product-modal">
+      <%= t('edit') %>
+    </button>
+    <hr/>
+    <p>
+      <%= link_to t('.create_phase'), new_product_phase_path(@product), remote: true, class: 'btn btn-default' %>
+    </p>
+    <%= render 'phases/list', product: @product %>
+    <p><%= link_to t('.create_phase'), new_product_phase_path(@product), remote: true, class: 'underlined' %></p>
+  </div>
+</div>
+<%= render 'modal' %>
+<div class="phase-modal-div">
+  <%= render 'phases/modal' %>
+</div>

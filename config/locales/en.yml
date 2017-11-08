@@ -1,0 +1,156 @@
+en:
+  activerecord:
+    attributes:
+      measurement:
+        humidity: Humidity
+        measured_at: Time
+        temperature: Temperature
+      phase:
+        begin_at: Begin at
+        end_at: End at
+        name: Name
+        planned_end_at: Planned end at
+      product:
+        expiration_at: Expiration
+        label: Label
+        name: Name
+        produced_at: Produced
+      user:
+        email: Email
+        name: Name
+        password: Password
+        password_confirmation: Password confirmation
+        phone_number: Phone number
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: 'is required'
+              invalid: 'is not correct'
+              taken: 'is already in use here'
+            name: 
+              blank: 'is required'
+            password:
+              blank: 'is required'
+              too_short: 'is too short'
+            password_confirmation:
+              confirmation: 'does not match'
+  add: Add
+  dates:
+    days:
+      friday: friday
+      monday: monday
+      saturday: saturday
+      sunday: sunday
+      thursday: thursday
+      tuesday: tuesday
+      wednesday: wednesday
+    months:
+      april: april
+      august: august
+      december: december
+      february: february
+      january: january
+      july: july
+      jun: jun
+      march: march      
+      may: may
+      november: november
+      october: october
+      september: september
+    today: today
+    tomorrow: tomorrow
+  devise:
+    failure:
+      user:
+        invalid: This email/password combination is not correct.
+        not_found_in_database: This email/password combination is not correct.
+        unauthenticated: ''
+    passwords:
+      new:
+        email: Email
+        forgotten_password: Forgotten password
+      user:
+        send_instructions: Go to the inbox of the email address you entered and use the link to set up a new password.
+    registrations:
+      edit:
+        cancel_account: Cancel account
+        change_password: Change password
+        profile: Profile
+        sure_to_cancel_account: Really wish to cancel account? Confirming this message will cause your account to disappear.
+      new:
+        chars_count_min: characters minimum
+        password: Password
+        password_confirmation: Password confirmation
+        sign_up: Registration
+      registration_fields:
+        name_suggestion_note_html: Please, type your name identically as you have it on <span class="text-nowrap"><a href="http://www.kurty-topolcany.sk" target="_blank">www.kurty-topolcany.sk</a></span> page.
+        phone_number_suggestion_note: If you use spaces it's easier to read the number.
+      user:
+        destroyed: ''
+        signed_up: ''
+        updated: ''
+    sessions:
+      new:
+        email: Email
+        log_in: Log In
+        password: Password
+        remember_me: Remember me
+      user:
+        signed_in: ''
+        signed_out: ''
+    shared:
+      links:
+        forgotten_password: Forgotten password?
+        log_in: Log In
+        sign_up: Registration
+  edit: Edit
+  layouts:
+    main_menu:
+      home: Home
+      login: Log In
+      logout: Log Out
+      measurements: Measurements
+      products: Products
+      profile: Profile
+      registration: Registration
+      slovak: Slovensky
+  phases:
+    list:
+      phases: Phases
+    modal:
+      new_phase: New phase
+    show:
+      measurements: Measurements
+      products: Products
+  products:
+    index:
+      completed: Completed
+      create_product: Create product
+      in_progress: In Progress
+    list:
+      no_products: No products
+    modal:
+      new_product: New product
+    products_list:
+      create_product: Create product
+      no_products: No products here
+      sure_to_delete_product: Sure to delete this product?
+    product_modal:
+      new_product: New product
+    show:
+      create_phase: Begin new phase
+      products: Products
+  shared:
+    footer:
+      author: Author
+  submit_btn_text: Submit
+  user_blocked_info: This account is blocked.
+  users:
+    password_change:
+      chars_count_min: characters minimum
+      current_password: Current password
+      new_password: New password
+      new_password_confirmation: Confirm new password
+      password_change: Password change

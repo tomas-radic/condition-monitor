@@ -1,0 +1,210 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: #333;
+  background-image: url('background.jpg');
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-attachment: fixed;
+  margin-bottom: 175px;
+}
+
+.content {
+  color: white;
+}
+
+.navbar-default {
+  color: white;
+  background-color: #333333;
+  border-color: #baab33;
+
+  .navbar-brand {
+    color: #333333;
+    background-color: #baab33;
+
+    &:hover {
+      color: white;
+      background-color: #baab33;
+    }
+  }
+
+  .navbar-nav {
+    li > a {
+      color: white;
+
+      &:hover {
+        color: #baab33;
+      }
+    }
+
+    li.dropdown.open > a {
+      color: #333333;
+      background-color: #baab33;
+    }
+
+    li.active > a {
+      color: #333333;
+      background-color: #baab33;
+
+      &:hover {
+        color: white;
+        background-color: #baab33;
+      }
+    }
+
+    .dropdown-menu {
+      background-color: #333333;
+
+      li > a:hover {
+        color: #baab33;
+        background-color: inherit;
+      }
+    }
+  }
+  
+  .navbar-nav > li > a:focus {
+    color: white;
+    background-color: #333333;
+  }
+}
+
+
+.alert {
+  color: #333333;
+  border-radius: 0;
+}
+
+.alert-success {
+  background-color: #baab33;
+  border-color: #f7776a;
+
+}
+
+.alert-error, .alert-alert {
+  background-color: #f7776a;
+  border-color: #baab33;
+}
+
+.content {
+  padding-top: 80px;
+}
+
+.panel {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-color: #baab33;
+  color: white;
+  border-radius: 0;
+
+  .panel-heading {
+    background-color: #baab33;
+    border-color: #baab33;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  .panel-body {
+    padding: 18px;
+  }
+
+  .vert-spaced {
+    padding: 42px 18px;
+  }
+
+  .help-block {
+    color: #baab33;
+  }
+}
+
+.table-hover {
+  tbody {
+    tr:hover {
+      background-color: #baab33;
+    }
+  }
+}
+
+.modal {
+  color: black;
+}
+
+.btn-default {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border-color: #baab33;
+
+  &:hover {
+    background-color: #baab33;
+    color: white;
+    border-color: white;
+  }
+}
+
+a {
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb {
+  background-color: inherit;
+}
+.breadcrumb > .active {
+  color: inherit;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+.striketrough {
+  text-decoration: line-through;
+}
+
+.center-element {
+  margin: 0 auto;
+  display: block;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.justified {
+  text-align: justify;
+}
+
+.sticker {
+  padding: 18px;
+  background-color: rgba(255, 255, 255, 0.45);
+  color: #333333;
+  margin-bottom: 18px;
+
+  p {
+    padding-top: 10px;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+}
+
+.footer {
+  background-color: #333333;
+  color: #baab33;
+  padding: 24px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 175px;
+}
