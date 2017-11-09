@@ -2,7 +2,7 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
 
-raise "Environment does not support seeds!" if Rails.env.eql?('production')
+# raise "Environment does not support seeds!" if Rails.env.eql?('production')
 User.destroy_all
 user = User.new
 user.email = 'bravcove@plece.com'
