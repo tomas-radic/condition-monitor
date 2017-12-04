@@ -15,5 +15,9 @@ Rails.application.routes.draw do
     end
 
     resources :measurements
+
+    namespace :api do
+      resources :measurements, only: :create
+    end
 	end
 end

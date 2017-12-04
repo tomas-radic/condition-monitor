@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20171105115347) do
     t.string   "name"
     t.datetime "begin_at"
     t.datetime "end_at"
-    t.date     "planned_end_at"
+    t.datetime "planned_end_at"
     t.integer  "product_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
