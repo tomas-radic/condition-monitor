@@ -2,8 +2,6 @@ class Api::MeasurementsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :authenticate
 
-  SECRET_WORD = 'bravcoverebra'
-
   def create
     temperature = params[:temperature].to_f.round.to_i
     humidity = params[:humidity].to_f.round.to_i
@@ -11,7 +9,7 @@ class Api::MeasurementsController < ApplicationController
       measured_at: Time.zone.now, 
       temperature: temperature, 
       humidity: humidity,
-      user: User.find_by(email: 'bravcove@plece.com')
+      user: @user
     )
 
     if measurement.save
@@ -25,6 +23,7 @@ class Api::MeasurementsController < ApplicationController
   private
 
   def authenticate
-    render json: { status: 403 } unless params[:secret_word].eql?(SECRET_WORD)
+    @user = User.find_by(email: params[:secret_word])
+    render json: { status: 403 } unless @user.present?
   end
 end

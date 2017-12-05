@@ -5,7 +5,7 @@
 # raise "Environment does not support seeds!" if Rails.env.eql?('production')
 User.destroy_all
 user = User.new
-user.email = 'bravcove@plece.com'
+user.email = 'obrano@gmail.com'
 user.password = 'bravcoveplece'
 user.password_confirmation = 'bravcoveplece'
 user.save!
