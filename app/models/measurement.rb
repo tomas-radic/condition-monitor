@@ -22,12 +22,17 @@ class Measurement < ApplicationRecord
       end_time = t2 > global_end_time ? global_end_time : t2
       puts "\n\n\n#{t1.strftime('%H:%M:%S')} - #{end_time.strftime('%H:%M:%S')}"
       measurements = Measurement.where('measured_at >= ? and measured_at < ?', t1, end_time).order(:measured_at)
-      
+      m_count = measurements.count
+
+      if m_count == 0
+        puts "No measurements within range."
+        return
+      end
 
       # Count average values
       t_sum = measurements.sum(:temperature)
       h_sum = measurements.sum(:humidity)
-      m_count = measurements.count
+      
       
       puts "Avg T = #{t_sum / m_count}"
       puts "Avg H = #{h_sum / m_count}"
@@ -47,8 +52,8 @@ class Measurement < ApplicationRecord
         measurements = Measurement.where('measured_at >= ? and measured_at < ?', t1, end_time).order(:measured_at)
       end
 
-      puts "Avg T (by #{n} mins) = #{t_sum / m_count}"
-      puts "Avg H (by #{n} mins) = #{h_sum / m_count}"
+      puts "Avg T (by #{minutes_offset} mins) = #{t_sum / m_count}"
+      puts "Avg H (by #{minutes_offset} mins) = #{h_sum / m_count}"
 
 
       # Set next iteration data
