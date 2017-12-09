@@ -4,6 +4,8 @@ module ApplicationHelper
     return result if date.nil?
 
     case date
+    when Date.yesterday
+      result += t('dates.yesterday')
     when Date.today
       result += t('dates.today')
     when Date.tomorrow

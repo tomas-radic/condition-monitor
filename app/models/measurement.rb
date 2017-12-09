@@ -33,10 +33,8 @@ class Measurement < ApplicationRecord
       t_sum = measurements.sum(:temperature)
       h_sum = measurements.sum(:humidity)
       
-      
       puts "Avg T = #{t_sum / m_count}"
       puts "Avg H = #{h_sum / m_count}"
-
 
       # Count average values from each n minutes measurements
       t_sum = 0
@@ -54,7 +52,6 @@ class Measurement < ApplicationRecord
 
       puts "Avg T (by #{minutes_offset} mins) = #{t_sum / m_count}"
       puts "Avg H (by #{minutes_offset} mins) = #{h_sum / m_count}"
-
 
       # Set next iteration data
       t1 = end_time

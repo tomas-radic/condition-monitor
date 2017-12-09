@@ -61,6 +61,7 @@ sk:
       september: september
     today: dnes
     tomorrow: zajtra
+    yesterday: včera
   devise:
     failure:
       user:
