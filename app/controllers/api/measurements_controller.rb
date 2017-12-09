@@ -5,7 +5,9 @@ class Api::MeasurementsController < ApplicationController
   def create
     last_measurement = Measurement.all.order(measured_at: :desc).first
 
-    if last_measurement.present? && (last_measurement.measured_at > (Time.now - 10.minutes))
+    # Don't accept new measurement if we have an existing one within last minutes
+    timeout_minutes = Rails.configuration.api_measurements_timeout
+    if last_measurement.present? && (last_measurement.measured_at > timeout_minutes.minutes.ago)
       render json: { status: 208 } and return
     end
 
