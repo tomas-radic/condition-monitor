@@ -7,22 +7,11 @@
         <th scope="col"><%= t('activerecord.attributes.phase.begin_at') %></th>
         <th scope="col"><%= t('activerecord.attributes.phase.planned_end_at') %></th>
         <th scope="col"><%= t('activerecord.attributes.phase.end_at') %></th>
-        <th/>
       </tr>
     </thead>
     <tbody>
-      <% product.phases.order(end_at: :desc).order(begin_at: :desc).each do |phase| %>
-        <tr>
-          <th scope="row" class="<%= phase_name_class(phase) %>"><%= phase.name %></th>
-          <td><%= formatted_datetime(phase.begin_at) %></td>
-          <td><%= formatted_datetime(phase.planned_end_at) %></td>
-          <td><%= formatted_datetime(phase.end_at) %></td>
-          <td>
-            <%= link_to product_phase_path(product, phase) do %>
-              <span class="glyphicon glyphicon-option-horizontal"></span>
-            <% end %>
-          </td>
-        </tr>
+      <% product.phases.order(end_at: :desc).each do |phase| %>
+        <%= phase_table_row(phase) %>
       <% end %>
     </tbody>
   </table>

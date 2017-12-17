@@ -11,6 +11,9 @@
       <li class="nav-item">
         <a class="nav-link" id="completed-tab" data-toggle="tab" href="#completed" role="tab" aria-controls="completed" aria-selected="false"><%= t('.completed') %></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" id="archived-tab" data-toggle="tab" href="#archived" role="tab" aria-controls="archived" aria-selected="false"><%= t('.archived') %></a>
+      </li>
     </ul>
 
     <!-- Tab panes -->
@@ -21,12 +24,13 @@
       <div class="tab-pane" id="completed" role="tabpanel" aria-labelledby="completed-tab">
         <%= render 'list', products: @products_completed %>
       </div>
+      <div class="tab-pane" id="archived" role="tabpanel" aria-labelledby="archived-tab">
+        <%= render 'list', products: @products_archived %>
+      </div>
     </div>
     <p><%= link_to t('.create_product'), new_product_path, remote: true, class: 'underlined' %></p>
   </div>
-  <div class="col-md-3">
-    
-  </div>
+  <div class="col-md-3"></div>
 </div>
 
 <div class="product-modal-div">

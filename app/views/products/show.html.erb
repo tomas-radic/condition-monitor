@@ -26,14 +26,23 @@
       <%= t('edit') %>
     </button>
     <hr/>
-    <p>
-      <%= link_to t('.create_phase'), new_product_phase_path(@product), remote: true, class: 'btn btn-default' %>
-    </p>
+    <% if @allow_new_phase %>
+      <p>
+        <%= link_to t('.create_phase'), new_product_phase_path(@product), remote: true, class: 'btn btn-default' %>
+      </p>
+    <% end %>
     <%= render 'phases/list', product: @product %>
-    <p><%= link_to t('.create_phase'), new_product_phase_path(@product), remote: true, class: 'underlined' %></p>
+    <% if @allow_new_phase %>
+      <p>
+        <%= link_to t('.create_phase'), new_product_phase_path(@product), remote: true, class: 'underlined' %>
+        |
+        <%= link_to t('.archive'), '#', class: 'underlined', data: { toggle: 'modal', target: '#archive-modal' } %>
+      </p>
+    <% end %>
   </div>
 </div>
 <%= render 'modal' %>
 <div class="phase-modal-div">
   <%= render 'phases/modal' %>
 </div>
+<%= render 'archive_modal' %>

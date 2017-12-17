@@ -122,11 +122,17 @@ en:
       phases: Phases
     modal:
       new_phase: New phase
+      now: now
     show:
       measurements: Measurements
       products: Products
   products:
+    archive_modal:
+      archive: Archive
+      title: Archive product
+      warning_text: WARNING, archiving this product means loosing control of this product by these pages. It helps to reduce number of stored measurements that are no more needed.
     index:
+      archived: Archived
       completed: Completed
       create_product: Create product
       in_progress: In Progress
@@ -134,6 +140,7 @@ en:
       no_products: No products
     modal:
       new_product: New product
+      now: now
     products_list:
       create_product: Create product
       no_products: No products here
@@ -141,6 +148,7 @@ en:
     product_modal:
       new_product: New product
     show:
+      archive: Archive product
       create_phase: Begin new phase
       products: Products
   shared:

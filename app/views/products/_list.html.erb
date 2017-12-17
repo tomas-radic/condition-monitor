@@ -6,22 +6,11 @@
         <th scope="col"><%= t('activerecord.attributes.product.name') %></th>
         <th scope="col"><%= t('activerecord.attributes.product.label') %></th>
         <th scope="col"><%= t('activerecord.attributes.product.expiration_at') %></th>
-        <th/>
       </tr>
     </thead>
     <tbody>
       <% products.each do |product| %>
-        <tr>
-          <th scope="row"><%= formatted_date(product.produced_at) %></th>
-          <td><%= product.name %></td>
-          <td><%= product.label %></td>
-          <td><%= formatted_date(product.expiration_at) %></td>
-          <td>
-            <%= link_to product_path(product) do %>
-              <span class="glyphicon glyphicon-option-horizontal"></span>
-            <% end %>
-          </td>
-        </tr>
+        <%= product_table_row(product) %>
       <% end %>
     </tbody>
   </table>

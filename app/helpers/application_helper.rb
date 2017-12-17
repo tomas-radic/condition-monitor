@@ -19,12 +19,14 @@ module ApplicationHelper
     result
   end
 
-  def formatted_datetime(datetime)
+  def formatted_datetime(datetime, display_seconds = false)
     result = ''
     return result if datetime.nil?
     date = Date.parse(datetime.to_s)
 
     case date
+    when Date.yesterday
+      result += t('dates.yesterday')
     when Date.today
       result += t('dates.today')
     when Date.tomorrow
@@ -35,7 +37,9 @@ module ApplicationHelper
       result += t("dates.months.#{date.strftime('%B').downcase}")
     end
 
-    result += datetime.strftime(' %k:%M:%S')
+    time_format = ' %k:%M'
+    time_format += ':%S' if display_seconds
+    result += datetime.strftime(time_format)
     result
   end
 

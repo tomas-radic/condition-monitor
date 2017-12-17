@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 	  
     resources :products do
       resources :phases
+      get 'archive', on: :member
     end
 
     resources :measurements

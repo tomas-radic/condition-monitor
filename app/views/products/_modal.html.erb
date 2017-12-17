@@ -16,10 +16,11 @@
               <%= f.label :label, t('activerecord.attributes.product.label') %>
               <%= f.text_field :label, class: 'form-control' %>
             </div>
-            <% unless @product.new_record? %>
+            <% if !@product.new_record? && @allow_new_phase %>
               <div class="form-group">
                 <%= f.label :produced_at, t('activerecord.attributes.product.produced_at') %>
                 <%= f.date_field :produced_at, class: 'form-control' %>
+                <button type="button" class="set-now-date"><%= t('.now') %></button>
               </div>
               <div class="form-group">
                 <%= f.label :expiration_at, t('activerecord.attributes.product.expiration_at') %>

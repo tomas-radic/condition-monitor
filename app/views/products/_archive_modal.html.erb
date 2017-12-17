@@ -1,0 +1,21 @@
+<div class="modal fade" id="archive-modal" tabindex="-1" role="dialog" aria-labelledby="archiveModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="archiveModalLabel"><%= t('.title') %></h4>
+      </div>
+      <div class="modal-body">
+        <p class="center-text">
+          <b><%= @product.name %></b>
+          <%= "(#{@product.label})" unless @product.label.blank? %>
+        </p>
+        <hr/>
+        <p><%= t('.warning_text') %></p>
+      </div>
+      <div class="modal-footer">        
+        <%= link_to t('.archive'), archive_product_path(@product), class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+</div>

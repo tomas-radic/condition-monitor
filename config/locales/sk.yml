@@ -122,18 +122,25 @@ sk:
       phases: Fázy
     modal:
       new_phase: Nová fáza
+      now: teraz
     show:
       measurements: Merania
       products: Produkty
   products:
+    archive_modal:
+      archive: Archivovať
+      title: Archivácia produktu
+      warning_text: VAROVANIE, archivovanie produktu sposobí stratu možnosti upravovať produkt pomocou týchto stránok. Archivovanie produktov pomáha redukovať počet uložených meraní, ktoré už nie sú potrebné.
     index:
+      archived: Archivované
       completed: Hotové
       create_product: Vytvoriť produkt
-      in_progress: V procese zrenia
+      in_progress: Vo výrobe
     list:
       no_products: Žiadne produkty
     modal:
       new_product: Nový produkt
+      now: teraz
     products_list:
       create_product: Vytvoriť produkt
       no_products: Nie sú tu žiadne produkty
@@ -141,6 +148,7 @@ sk:
     product_modal:
       new_product: Nový produkt
     show:
+      archive: Archivovať produkt
       create_phase: Začať novú fázu
       products: Produkty
   shared:

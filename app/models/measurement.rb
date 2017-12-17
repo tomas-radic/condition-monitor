@@ -7,8 +7,17 @@ class Measurement < ApplicationRecord
   belongs_to :user
 
 
-  # This method counts and outputs average temperature and humidity of measurements made between
-  # given time range - separately for each hour. Within each of these hours it also computes and
+  
+  # Destroys all measurements older than beginning of oldest phase of all unarchived products.
+  def self.destroy_old
+    oldest_phase_begin_at = Phase.joins(:product).merge(Product.unarchived).pluck(:begin_at).min
+    Measurement.where('measured_at < ?', oldest_phase_begin_at).destroy_all unless oldest_phase_begin_at.nil?
+  end
+
+
+  # This method is just to output some statistics to std out.
+  # It counts and outputs average temperature and humidity of measurements made between
+  # given time range - separately for each hour. For each of these hours it also computes and
   # outputs average temperature and humidity values of measurements made each n minutes in this
   # hour - so that these averages can be compared.
   # Parameters:

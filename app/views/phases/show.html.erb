@@ -29,7 +29,7 @@
     </button>
     <hr/>
     <h3><%= t('.measurements') %></h3>
-    <%= render 'measurements/list', measurements: @phase.measurements %>
+    <%= render 'measurements/list', measurements: @phase.measurements.order(measured_at: :desc).limit(300) %>
   </div>
 </div>
 

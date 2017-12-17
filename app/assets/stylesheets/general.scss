@@ -126,7 +126,7 @@ body {
 .table-hover {
   tbody {
     tr:hover {
-      background-color: #baab33;
+      background-color: #333;
     }
   }
 }
@@ -156,6 +156,10 @@ a {
   }
 }
 
+.link-row {
+  cursor: pointer;
+}
+
 .breadcrumb {
   background-color: inherit;
 }
@@ -182,6 +186,14 @@ a {
 
 .justified {
   text-align: justify;
+}
+
+.bg-attention {
+  background-color: #ffa50061;
+}
+
+.bg-warning {
+  background-color: #ff000094;
 }
 
 .sticker {
