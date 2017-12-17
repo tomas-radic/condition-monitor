@@ -10,12 +10,13 @@ class Phase < ApplicationRecord
   belongs_to :product
 
   # S C O P E S
-  scope :in_progress, -> { where.not(begin_at: nil).where('end_at is null or end_at > ?', Time.now) }
-  scope :completed, -> { where('end_at <= ?', Time.now) }
-  scope :to_end_today, -> { where.not(planned_end_at: nil).where(planned_end_at: (Date.today.beginning_of_day..Date.today.end_of_day))
-    .where('end_at is null or end_at > ?', Time.now) 
+  scope :in_progress, -> { where.not(begin_at: nil).where(end_at: nil) }
+  scope :completed, -> { where.not(end_at: nil) }
+  scope :to_end_today, -> { where.not(planned_end_at: nil)
+    .where(planned_end_at: (Date.today.beginning_of_day..Date.today.end_of_day))
+    .where(end_at: nil)
   }
-  scope :missed, -> { where('planned_end_at <= ?', Time.now).where('end_at is null or end_at > ?', Time.now) }
+  scope :missed, -> { where('planned_end_at <= ?', Time.now).where(end_at: nil) }
 
   # C A L L B A C K S
   before_save :set_name
@@ -23,7 +24,7 @@ class Phase < ApplicationRecord
 
   # Scope related methods
   def in_progress?
-    self.begin_at.nil? && (self.end_at.nil? || self.end_at > Time.now)
+    self.begin_at.present? && self.end_at.nil?
   end
 
   def completed?
@@ -31,12 +32,11 @@ class Phase < ApplicationRecord
   end
 
   def to_end_today?
-    self.planned_end_at && self.planned_end_at >= Date.today.beginning_of_day && self.planned_end_at <= Date.today.end_of_day && (self.end_at.nil? || self.end_at > Time.now)
+    self.planned_end_at && self.planned_end_at >= Date.today.beginning_of_day && self.planned_end_at <= Date.today.end_of_day && self.end_at.nil?
   end
 
   def missed?
-    now = Time.now
-    self.planned_end_at && self.planned_end_at <= now && (self.end_at.nil? || self.end_at > now)
+    self.planned_end_at && self.planned_end_at <= Time.now && self.end_at.nil?
   end
   # Scope related methods (end)
 

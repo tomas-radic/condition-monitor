@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :load_product, only: [:show, :edit, :update, :archive]
 
   def index
-    @products_in_progress = current_user.products.in_progress.joins(:phases)
+    @products_in_progress = current_user.products.in_progress.left_outer_joins(:phases)
       .group('products.id').order('max(phases.begin_at) desc')
     @products_completed = current_user.products.completed.order(produced_at: :desc)
     @products_archived = current_user.products.archived.order(archived_at: :desc)

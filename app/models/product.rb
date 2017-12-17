@@ -10,18 +10,18 @@ class Product < ApplicationRecord
 
   # S C O P E S
   scope :unarchived, -> { where(archived_at: nil) }
-  scope :in_progress, -> { unarchived.where('produced_at is null or produced_at > ?', Time.now) }
-  scope :completed, -> { unarchived.where.not('produced_at <= ?', Time.now) }
+  scope :in_progress, -> { unarchived.where(produced_at: nil) }
+  scope :completed, -> { unarchived.where.not(produced_at: nil) }
   scope :archived, -> { where.not(archived_at: nil) }
 
 
   # Scope methods
   def in_progress?
-    self.produced_at.nil? || self.produced_at > Time.now
+    self.produced_at.nil?
   end
 
   def completed?
-    self.produced_at.present? && self.produced_at <= Time.now
+    self.produced_at.present?
   end
 
   def archived?

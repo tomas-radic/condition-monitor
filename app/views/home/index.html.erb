@@ -1,61 +1,16 @@
 <div class="row">
-	<div class="col-md-3">
-		<% if !user_signed_in? %>
-			<p><%= link_to t('add'), new_user_session_path, class: 'btn btn-default btn-lg' %></p>
-		<% elsif policy(Availability).create? %>
-			<p><%= link_to t('add'), new_availability_path, remote: true, class: 'btn btn-default btn-lg' %></p>
-		<% end %>
-	</div>
-	<div class="col-md-6">
-		<% if @availabilities.any? %>
-			<% @availabilities.group_by(&:date).each do |date, date_availabilities| %>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h2 class="panel-title"><%= formatted_date(date) %></h2>
-					</div>
-					<div class="panel-body">
-						<table class="table">
-							<% date_availabilities.group_by(&:period).each do |period, period_availabilities| %>
-								<tr>
-									<td>
-										<%= t("activerecord.attributes.availability.periods.#{period}") %>
-									</td>
-									<td>●</td>
-									<td><%= user_info_for(period_availabilities) %></td>
-								</tr>
-							<% end %>
-						</table>
-					</div>
-				</div>
-			<% end %>
-			<hr/>
-			<div class="sticker">
-			<p class="justified">
-				<i><%= t('.upcoming_displayed_info') %></i>
-			</p>
-			</div>
-			
-		<% else %>
-			<div class="panel panel-default">
-				<div class="panel-body vert-spaced">
-					<%= render 'no_one_to_play_link' %>
-				</div>
-			</div>
-		<% end %>
-	</div>
-	<div class="col-md-3">
-		<div class="sticker">
-			<h3 class="center-text"><%= t('.how_this_helps') %></h3>
-			<p class="justified"><i><%= t('.how_this_helps_text_html') %></i></p>
-		</div>
-		<div class="sticker">
-			<h3 class="center-text"><%= t('.why_is_page_slow') %></h3>
-			<p class="justified"><i><%= t('.why_is_page_slow_text') %></i></p>
-		</div>
-	</div>
+  <div class="col-md-7">
+    <p><%= link_to t('.create_product'), new_product_path, remote: true, class: 'btn btn-default btn-lg' %></p>
+    <h2><%= t('.products_in_fridge') %></h2>
+    <%= render 'products/list', products: @products_in_fridge %>
+    <hr/>
+    <h2><%= t('.products_out_of_fridge') %></h2>
+    <%= render 'products/list', products: @products_out_of_fridge %>
+    <p><%= link_to t('.create_product'), new_product_path, remote: true, class: 'underlined' %></p>
+  </div>
+  <div class="col-md-3"></div>
 </div>
-<% if user_signed_in? %>
-	<div class="availability-modal-div">
-		<%= render 'availabilities/availability_modal' %>
-	</div>
-<% end %>
+
+<div class="product-modal-div">
+  <%= render 'products/modal' %>
+</div>
