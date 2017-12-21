@@ -149,6 +149,7 @@ en:
       phases: Phases
     list:
       no_products: No products
+      phases: Phases
     modal:
       new_product: New product
       now: now

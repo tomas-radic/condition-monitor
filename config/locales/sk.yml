@@ -149,6 +149,7 @@ sk:
       phases: Fázy
     list:
       no_products: Žiadne produkty
+      phases: Fázy
     modal:
       new_product: Nový produkt
       now: teraz
