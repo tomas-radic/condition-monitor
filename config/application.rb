@@ -16,5 +16,6 @@ module ConditionMonitor
 		config.i18n.default_locale = :sk
 		config.api_measurements_timeout = 10 # defines minimum number of minutes to pass since latest saved measurement to accept & save any new ones
     config.time_zone = 'Bratislava'
+    config.phase_measurements_display_limit = 300
   end
 end

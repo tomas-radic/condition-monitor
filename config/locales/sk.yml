@@ -11,6 +11,7 @@ sk:
         name: Názov
         planned_end_at: Plánované ukončenie
       product:
+        archived_at: Archivované
         expiration_at: Expirácia
         label: Označenie
         name: Meno
@@ -107,6 +108,12 @@ sk:
         log_in: Prihlásenie
         sign_up: Registrácia
   edit: Upraviť
+  home:
+    index:
+      products_inside_fridge: Produkty v chladničke
+      products_outside_fridge: Produkty mimo chladničky
+    products_list:
+      phases: Fázy
   layouts:
     main_menu:
       english: English
@@ -124,6 +131,7 @@ sk:
       new_phase: Nová fáza
       now: teraz
     show:
+      last: posl.
       measurements: Merania
       products: Produkty
   products:
@@ -136,6 +144,7 @@ sk:
       completed: Hotové
       create_product: Vytvoriť produkt
       in_progress: Vo výrobe
+      phases: Fázy
     list:
       no_products: Žiadne produkty
     modal:

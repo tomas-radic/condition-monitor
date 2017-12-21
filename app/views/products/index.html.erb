@@ -22,10 +22,60 @@
         <%= render 'list', products: @products_in_progress %>
       </div>
       <div class="tab-pane" id="completed" role="tabpanel" aria-labelledby="completed-tab">
-        <%= render 'list', products: @products_completed %>
+        <% if @products_completed.any? %>
+          <table class="table table-hover table-responsive">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col"><%= t('activerecord.attributes.product.name') %></th>
+                <th scope="col"><%= t('activerecord.attributes.product.produced_at') %></th>
+                <th scope="col"><%= t('activerecord.attributes.product.expiration_at') %></th>
+                <th scope="col"><%= t('.phases') %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @products_completed.each do |product| %>
+                <tr class="<%= product_class(product) %>" data-href="<%= product_url(product) %>">
+                  <td scope="row"><%= product.full_name %></td>
+                  <td><%= formatted_date(product.produced_at) %></td>
+                  <td><%= formatted_date(product.expiration_at) %></td>
+                  <td><%= product.phases_info %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% else %>
+          <p>
+            <%= t('.no_products') %>
+          </p>
+        <% end %>
       </div>
       <div class="tab-pane" id="archived" role="tabpanel" aria-labelledby="archived-tab">
-        <%= render 'list', products: @products_archived %>
+        <% if @products_archived.any? %>
+          <table class="table table-hover table-responsive">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col"><%= t('activerecord.attributes.product.name') %></th>
+                <th scope="col"><%= t('activerecord.attributes.product.produced_at') %></th>
+                <th scope="col"><%= t('activerecord.attributes.product.expiration_at') %></th>
+                <th scope="col"><%= t('activerecord.attributes.product.archived_at') %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @products_archived.each do |product| %>
+                <tr class="<%= product_class(product) %>" data-href="<%= product_url(product) %>">
+                  <td scope="row"><%= product.full_name %></td>
+                  <td><%= formatted_date(product.produced_at) %></td>
+                  <td><%= formatted_date(product.expiration_at) %></td>
+                  <td><%= formatted_date(product.archived_at) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% else %>
+          <p>
+            <%= t('.no_products') %>
+          </p>
+        <% end %>
       </div>
     </div>
     <p><%= link_to t('.create_product'), new_product_path, remote: true, class: 'underlined' %></p>

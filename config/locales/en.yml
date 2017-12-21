@@ -11,6 +11,7 @@ en:
         name: Name
         planned_end_at: Planned end at
       product:
+        archived_at: Archived
         expiration_at: Expiration
         label: Label
         name: Name
@@ -107,6 +108,12 @@ en:
         log_in: Log In
         sign_up: Registration
   edit: Edit
+  home:
+    index:
+      products_inside_fridge: Products in fridge
+      products_outside_fridge: Products out of fridge
+    products_list:
+      phases: Phases
   layouts:
     main_menu:
       home: Home
@@ -124,6 +131,7 @@ en:
       new_phase: New phase
       now: now
     show:
+      last: last
       measurements: Measurements
       products: Products
   products:
@@ -136,6 +144,7 @@ en:
       completed: Completed
       create_product: Create product
       in_progress: In Progress
+      phases: Phases
     list:
       no_products: No products
     modal:

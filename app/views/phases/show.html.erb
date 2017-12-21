@@ -28,11 +28,9 @@
       <%= t('edit') %>
     </button>
     <hr/>
-    <h3><%= t('.measurements') %></h3>
-    <%= render 'measurements/list', measurements: @phase.measurements.order(measured_at: :desc).limit(300) %>
+    <h3><%= "#{t('.measurements')} (#{t('.last')} #{Rails.configuration.phase_measurements_display_limit})" %></h3>
+    <%= render 'measurements/list', measurements: @phase.measurements.order(measured_at: :desc).limit(Rails.configuration.phase_measurements_display_limit) %>
   </div>
 </div>
-
-
 
 <%= render 'modal' %>

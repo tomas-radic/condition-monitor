@@ -15,6 +15,16 @@ class Product < ApplicationRecord
   scope :archived, -> { where.not(archived_at: nil) }
 
 
+  def full_name
+    result = self.name
+    result += " (#{self.label})" unless self.label.blank?
+    result
+  end
+
+  def phases_info
+    "#{self.phases.completed.count}/#{self.phases.count}"
+  end
+
   # Scope methods
   def in_progress?
     self.produced_at.nil?

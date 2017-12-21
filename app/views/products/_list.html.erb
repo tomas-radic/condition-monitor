@@ -2,15 +2,16 @@
   <table class="table table-hover table-responsive">
     <thead class="thead-light">
       <tr>
-        <th scope="col"><%= t('activerecord.attributes.product.produced_at') %></th>
         <th scope="col"><%= t('activerecord.attributes.product.name') %></th>
-        <th scope="col"><%= t('activerecord.attributes.product.label') %></th>
-        <th scope="col"><%= t('activerecord.attributes.product.expiration_at') %></th>
+        <th scope="col"><%= t('.phases') %></th>
       </tr>
     </thead>
     <tbody>
       <% products.each do |product| %>
-        <%= product_table_row(product) %>
+        <tr class="<%= product_class(product) %>" data-href="<%= product_url(product) %>">
+          <td scope="row"><%= product.full_name %></td>
+          <td><%= product.phases_info %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>
