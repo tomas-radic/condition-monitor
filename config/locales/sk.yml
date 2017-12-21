@@ -110,6 +110,7 @@ sk:
   edit: Upraviť
   home:
     index:
+      create_product: Vytvoriť produkt
       products_inside_fridge: Produkty v chladničke
       products_outside_fridge: Produkty mimo chladničky
     products_list:
@@ -144,6 +145,7 @@ sk:
       completed: Hotové
       create_product: Vytvoriť produkt
       in_progress: Vo výrobe
+      no_products: Žiadne produkty
       phases: Fázy
     list:
       no_products: Žiadne produkty

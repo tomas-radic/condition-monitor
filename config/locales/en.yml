@@ -110,6 +110,7 @@ en:
   edit: Edit
   home:
     index:
+      create_product: Create product
       products_inside_fridge: Products in fridge
       products_outside_fridge: Products out of fridge
     products_list:
@@ -144,6 +145,7 @@ en:
       completed: Completed
       create_product: Create product
       in_progress: In Progress
+      no_products: No products
       phases: Phases
     list:
       no_products: No products
