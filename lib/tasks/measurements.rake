@@ -18,7 +18,7 @@ namespace :measurements do
       measurements_to_destroy = measurements_to_destroy.where('measured_at >= ?', date.beginning_of_day)
       puts "Loaded measurements: #{measurements_to_destroy.pluck(:measured_at).map { |e| e.to_s }}"
     
-      unless measurements_to_destroy.blank?
+      if measurements_to_destroy.count > 1
         temperatures = measurements_to_destroy.pluck(:temperature).compact
         humidities = measurements_to_destroy.pluck(:humidity).compact
         avg_temperature = temperatures.inject(0) { |memo, e| memo += e } / temperatures.length

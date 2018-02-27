@@ -11,8 +11,8 @@
       <% measurements.order(measured_at: :desc).each do |measurement| %>
         <tr>
           <th scope="row"><%= formatted_datetime(measurement.measured_at) %></th>
-          <td><%= measurement.temperature %></td>
-          <td><%= measurement.humidity %></td>
+          <td><%= display_value(measurement.temperature, measurement.averaged_at.present?) %></td>
+          <td><%= display_value(measurement.humidity, measurement.averaged_at.present?) %></td>
         </tr>
       <% end %>
     </tbody>
