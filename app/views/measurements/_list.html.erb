@@ -3,16 +3,16 @@
     <thead class="thead-light">
       <tr>
         <th scope="col"><%= t('activerecord.attributes.measurement.measured_at') %></th>
-        <th scope="col"><%= t('activerecord.attributes.measurement.temperature') %></th>
-        <th scope="col"><%= t('activerecord.attributes.measurement.humidity') %></th>
+        <th class="center-text" scope="col"><%= t('activerecord.attributes.measurement.temperature') %></th>
+        <th class="center-text" scope="col"><%= t('activerecord.attributes.measurement.humidity') %></th>
       </tr>
     </thead>
     <tbody>
       <% measurements.order(measured_at: :desc).each do |measurement| %>
         <tr>
           <th scope="row"><%= formatted_datetime(measurement.measured_at) %></th>
-          <td><%= display_value(measurement.temperature, measurement.averaged_at.present?) %></td>
-          <td><%= display_value(measurement.humidity, measurement.averaged_at.present?) %></td>
+          <td class="center-text"><%= display_value(measurement.temperature, measurement.averaged_at.present?) %></td>
+          <td class="center-text"><%= display_value(measurement.humidity, measurement.averaged_at.present?) %></td>
         </tr>
       <% end %>
     </tbody>
